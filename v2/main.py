@@ -54,7 +54,10 @@ graph_builder.set_entry_point("chatbot")
 
 memory = MemorySaver()
 
-graph = graph_builder.compile(checkpointer=memory)
+graph = graph_builder.compile(
+    checkpointer=memory,
+    interrupt_before=["tools"],
+    )
 
 # try:
 #     image_data = graph.get_graph().draw_mermaid_png()
